@@ -117,7 +117,7 @@ console.log(`
                 let engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github);
                  employees.push(engineer);
                  generatePage(employees);
-                 console.log(employees);
+                //  console.log(employees);
                  if(!answers.confirmAddEmployee){
                     return;
                      } 
@@ -129,7 +129,7 @@ console.log(`
                  let manager = new Manager(answers.name, answers.ID, answers.email, answers.officeNumber);
                  employees.push(manager);
                  generatePage(employees);
-                 console.log(employees);
+                //  console.log(employees);
                  if(!answers.confirmAddEmployee){
                     return;
                      } 
@@ -141,7 +141,7 @@ console.log(`
                  let intern = new Intern(answers.name, answers.ID, answers.email, answers.school);
                  employees.push(intern);
                  generatePage(employees);
-                 console.log(employees);
+                //  console.log(employees);
                  if(!answers.confirmAddEmployee){
                     return;
                      } 
