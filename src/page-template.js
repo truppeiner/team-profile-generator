@@ -1,6 +1,7 @@
 //generate HTML page
 
-function generateHTML(data){
+module.exports = function generateHTML(employees){
+    console.log(employees);
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -15,3 +16,4 @@ function generateHTML(data){
     </head>
     `
 }
+

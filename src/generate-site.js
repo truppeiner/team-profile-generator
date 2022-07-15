@@ -1,20 +1,15 @@
 const fs = require('fs');
+const Employee = require('../lib/Employee');
 
-const writeHTML = htmlContent => {
-    return new Promise((resolve, reject)=>{
-        fs.writeHTML('./index.html', HtmlContent, err =>{
-            //if error reject promise
+const writeHTML = employees => {
+        fs.writeFile('./index.html', employees, err =>{
             if (err){
-                reject(err);
+                console.log(err);
                 return;
+            }  else {
+                console.log('File successfully created!');
             }
-            //if success resolve promise and notify
-            resolve({
-                ok: true,
-                message: 'file successfully created!'
-            });
         });
-    });
 };
 
 module.exports = writeHTML(); 

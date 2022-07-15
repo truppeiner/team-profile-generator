@@ -14,14 +14,14 @@ const employees = [];
 
 // PROMPT USER FOR EMPLOYEE INFORMATION
 
-const promptUser = employeeData =>{
+const promptUser = () =>{
 console.log(`
         =======================================
         Please enter the following information 
                 to create Employee class!
         =======================================
         `);
-        inquirer.prompt([
+        return inquirer.prompt([
             {
                 type: 'list',
                 name: 'employeeType',
@@ -112,20 +112,52 @@ console.log(`
             }
          ])
          .then(answers =>{
-             if(!answers.confirmAddEmployee){
-            console.log(answers);
-             }
-             else {
-                console.log(answers);
-                return promptUser();
+             //store engineer
+             if(answers.employeeType === 'Engineer'){
+                let engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github);
+                 employees.push(engineer);
+                 generatePage(employees);
+                 console.log(employees);
+                 if(!answers.confirmAddEmployee){
+                    return;
+                     } 
+                     else {
+                        return promptUser();
+                     }
+            //store manager
+             } else if(answers.employeeType === 'Manager'){
+                 let manager = new Manager(answers.name, answers.ID, answers.email, answers.officeNumber);
+                 employees.push(manager);
+                 generatePage(employees);
+                 console.log(employees);
+                 if(!answers.confirmAddEmployee){
+                    return;
+                     } 
+                     else {
+                        return promptUser();
+                     }
+            //store Intern
+             } else if(answers.employeeType === 'Intern'){
+                 let intern = new Intern(answers.name, answers.ID, answers.email, answers.school);
+                 employees.push(intern);
+                 generatePage(employees);
+                 console.log(employees);
+                 if(!answers.confirmAddEmployee){
+                    return;
+                     } 
+                     else {
+                        return promptUser();
+                     }
              }
         })
 };
 
 promptUser();
-    // .then(employeeData =>{
-    //     return generatePage(employeeData);
-    // })
-    //     .then(pageHTML =>{
-    //         return writeHTML(employeeData);
-    //     });
+// .then(employees =>{
+//     generatePage(employees);
+// });
+    
+// console.log(generatePage(employees));
+        // .then(pageHTML =>{
+        //     return writeHTML(employeeData);
+        // });
